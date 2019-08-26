@@ -1,0 +1,172 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #CFD0CF;
+}
+
+.mainHeader {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font: bold 42px Arial, sans-serif;
+  text-align: center;
+  line-height: 47px;
+  color: #434344;
+}
+
+#gamesField {
+  width: 595px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 130px 130px 130px 130px;
+  grid-template-rows: 130px 130px 130px;
+  grid-row-gap: 25px;
+  grid-column-gap: 25px;
+}
+
+.emojiCard {
+  border-radius: 9px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  height: 130px;
+  width: 130px;
+  box-sizing: border-box;
+  transition: .2s linear;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: perspective(600px) rotateY(0deg);
+}
+
+.emojiCard.openedCard {
+  transform: perspective(600px) rotateY(-180deg);
+}
+
+.frontSide, .backSide {
+  position: absolute;
+  backface-visibility: hidden;
+  box-sizing: border-box;
+  border-radius: 9px;
+  top: 0;
+  left: 0;
+  top: 0;
+  left: 0;
+  height: 130px;
+  width: 130px;
+}
+
+.emojiCard:hover {
+  cursor: pointer;
+}
+
+.frontSide {
+  transform: rotateY(0deg);
+  border: 5px solid #FFF;
+  background: linear-gradient(to top right, #22AB93, #19668D);
+  z-index: 2;
+}
+
+.backSide {
+  transform: rotateY(180deg);
+  background-color: #FFF;
+  font: normal 75px sans-serif;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 130px;
+  box-sizing: border-box;
+}
+
+.wrongChoice {
+  background-color: #F44336;
+}
+
+.rightChoice {
+  background-color: #5AD66F;
+}
+
+#finalWindowContainer {
+  position: absolute;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+#finalWindowContainer.gameOver {
+  display: flex;
+}
+
+.finalWindow {
+  background-color: #FFF;
+  min-width: 350px;
+}
+
+#finalWindowHeader {
+  text-align: center;
+  margin: 30px 0 0 0;
+  font: bold 48px Arial, sans-serif;
+  color: #434344;
+}
+
+#tryAgain {
+  display: block;
+  margin: 40px auto 30px;
+  height: 40px;
+  font: bold 20px Arial, sans-serif;
+  text-decoration: none;
+  color: #FFF;
+  padding-right: 20px;
+  padding-left: 20px;
+  background: linear-gradient(to left, #22AB93, #19668D);
+  box-shadow: 1px 1px 1px #000;
+  border: none;
+  border-radius: 3px;
+}
+
+#tryAgain:hover {
+  cursor: pointer;
+}
+
+.finalWindow #tryAgain:active {
+  box-shadow: inset 2px 2px 8px #000;
+}
+
+#tryAgain:focus {
+  outline: none;
+}
+
+#timer {
+  line-height: 34px;
+  font: bold 32px Arial, sans-serif;
+  color: #434344;
+  text-align: center;
+  margin-top: 30px;
+}
+
+@keyframes waveText {
+  from {
+    transform: scaleY(1);
+  }
+  to {
+    transform: scaleY(1.7);
+  }
+}
+
+#finalWindowHeader span {
+  display: inline-block;
+  transform-origin: bottom;
+  animation: waveText .5s infinite alternate;
+}
+
+#finalWindowHeader span:nth-child(2) {
+  animation-delay: .1s;
+}
+
+#finalWindowHeader span:nth-child(3) {
+  animation-delay: .2s;
+}
+
+#finalWindowHeader span:nth-child(4) {
+  animation-delay: .3s;
+}
